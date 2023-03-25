@@ -93,7 +93,7 @@ app.get('/download', async(req, res) => {
     */
     console.log(items);
     
-    res.json({"items":items, "thumb":thumb, "videoTitle": videoTitle});
+    res.send({"items":items, "thumb":thumb, "videoTitle": videoTitle});
     
     
     /*
