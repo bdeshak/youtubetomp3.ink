@@ -59,7 +59,7 @@ app.get('/download', async(req, res) => {
     
    // let qu = info.formats[13].quality;
      
-   //  console.log(info.formats);
+     console.log(info.formats);
      
     let videoTitle = info.videoDetails.title;
     //console.log(info.player_response.videoDetails.thumbnail.thumbnails);
