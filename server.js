@@ -36,6 +36,8 @@ app.get('/blog', (req, res) => {
 
 app.get('/download', async(req, res) => {
 //res.setHeader('Content-Type', 'application/json'); 
+    
+    /*
     var url = req.query.username;
    // res.send({title:77653});
    // console.log(req.query.username);
@@ -71,7 +73,7 @@ app.get('/download', async(req, res) => {
 //video.pipe(fs.createWriteStream(Output))
 
 
-    let items = info.formats;
+    let items = info.formats;*/
     
     /*
     let data = {
@@ -91,7 +93,7 @@ app.get('/download', async(req, res) => {
     console.log("msgFrom", obj.msgFrom); console.log("msgBody", obj.msgBody); });
     
     */
-    console.log(items);
+ //   console.log(items); 
     
     res.send("hello");
     
