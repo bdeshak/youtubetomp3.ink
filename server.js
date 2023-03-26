@@ -34,7 +34,7 @@ app.get('/blog', (req, res) => {
 
 
 
-app.post('/download', async(req, res) => {
+app.get('/download', async(req, res) => {
 //res.setHeader('Content-Type', 'application/json'); 
     
     
