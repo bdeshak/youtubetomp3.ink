@@ -4,30 +4,30 @@ const cors = require('cors');
 const ytdl = require('ytdl-core');
 const app = express();
 const fs = require('fs');
-app.use('/static', express.static('./static'));
+app.use('/', express('./'));
 
 app.listen(port, () => {
     console.log("Server listening on port=>>" + port);
 });
 
 app.get('/', (req, res) => {
-    res.sendFile('inde.html', { root: './' });
+    res.sendFile('index.html', { root: './' });
 })
 
 app.get('/termofservice', (req, res) => {
     res.sendFile('termofservice.html', { root: './' });
 })
 
-app.get('/privacy', (req, res) => {
+app.get('/privacy&policy', (req, res) => {
     res.sendFile('privacy&policy.html', { root: './' });
 })
 
-app.get('/contact', (req, res) => {
+app.get('/contactus', (req, res) => {
     res.sendFile('contactus.html', { root: './' });
 })
 
 app.get('/blog', (req, res) => {
-    res.sendFile('faq.html', { root: './' });
+    res.sendFile('blog.html', { root: './' });
        
 })
 
