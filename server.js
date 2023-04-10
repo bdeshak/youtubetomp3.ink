@@ -16,6 +16,7 @@ app.listen(port, () => {
     console.log("Server listening on port=>>" + port);
 });
 
+
 app.get('/', (req, res) => {
     res.sendFile('index.html', { root: './' });
 })
@@ -24,16 +25,16 @@ app.get('/termofservice', (req, res) => {
     res.sendFile('termofservice.html', { root: './' });
 })
 
-app.get('/privacy&policy', (req, res) => {
+app.get('/privacy', (req, res) => {
     res.sendFile('privacy&policy.html', { root: './' });
 })
 
-app.get('/contactus', (req, res) => {
+app.get('/contact', (req, res) => {
     res.sendFile('contactus.html', { root: './' });
 })
 
 app.get('/blog', (req, res) => {
-    res.sendFile('blog.html', { root: './' });
+    res.sendFile('faq.html', { root: './' });
        
 })
 
@@ -42,8 +43,6 @@ app.get('/blog', (req, res) => {
 
 app.get('/download', async(req, res) => {
 //res.setHeader('Content-Type', 'application/json'); 
-    
-    
     var url = req.query.username;
    // res.send({title:77653});
    // console.log(req.query.username);
@@ -67,7 +66,7 @@ app.get('/download', async(req, res) => {
     
    // let qu = info.formats[13].quality;
      
-    // console.log(info.formats);
+     console.log(info.formats);
      
     let videoTitle = info.videoDetails.title;
     //console.log(info.player_response.videoDetails.thumbnail.thumbnails);
@@ -99,9 +98,8 @@ app.get('/download', async(req, res) => {
     console.log("msgFrom", obj.msgFrom); console.log("msgBody", obj.msgBody); });
     
     */
- //   console.log(items); 
     
-     
+    
     res.json({"items":items, "thumb":thumb, "videoTitle": videoTitle});
     
     
@@ -125,3 +123,4 @@ app.get('/download', async(req, res) => {
     
     
 });
+   
