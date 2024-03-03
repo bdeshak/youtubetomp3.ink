@@ -1,6 +1,6 @@
 
         $(document).ready(function() {
-
+alert(7);
   
   function bytesToSize(bytes) {
   const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB']
