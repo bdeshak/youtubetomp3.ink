@@ -104,32 +104,7 @@ app.get('/download', async(req, res) => {
     res.json({"items":items, "thumb":thumb, "videoTitle": videoTitle});
 
 
-var transporter = nodemailer.createTransport({
-    service: "gmail",
-     //host: "smtp-relay.brevo.com",
-     //port: 587,
-     //secure: true,
-  auth: {
-    user: "bdeshak5@gmail.com",
-    pass: "zkigvvfbezcohexj"
-  }
-});
 
-   const mailOptions = {
-  from: 'bdeshak5@gmail.com',
-  to: 'mdalonebd@gmail.com', //list of receivers
-  subject: videoTitle, // Subject line
-  html:videoTitle //plain text body
-};
-
-transporter.sendMail(mailOptions, function (err, info) {
-  if (err)
-    console.log(err)
-  else
-    console.log(info);
-    
-    res.render('f_success');
-});
 
 
   
