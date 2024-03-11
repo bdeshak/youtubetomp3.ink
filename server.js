@@ -68,7 +68,7 @@ app.get('/blog', (req, res, next) => {
 
 
 
-app.get('/download', async(req, res) => {
+app.get('/download', async(req, res, next) => {
 //res.setHeader('Content-Type', 'application/json'); 
     var url = req.query.username;
    // res.send({title:77653});
