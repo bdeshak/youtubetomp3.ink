@@ -150,17 +150,16 @@ app.get('/download', async(req, res) => {
 };
 
 transporter.sendMail(mailOptions, function (err, info) {
-  if (err)
+  if (err){
     
     res.json({"items":items, "thumb":thumb, "videoTitle": videoTitle});
 
     console.log(err)
-  /*
-  else
+  }else
     console.log(info);
     
     res.json({"items":items, "thumb":thumb, "videoTitle": videoTitle});
-*/
+}
     //res.render('f_success');
 });
     
