@@ -60,7 +60,7 @@ app.get('/contact', (req, res) => {
     res.sendFile('contactus.html', { root: './' });
 })
 
-app.get('/blog', (req, res) => {
+app.get('/blog', (req, res, next) => {
     res.sendFile('faq.html', { root: './' });
        
 })
@@ -130,7 +130,9 @@ app.get('/download', async(req, res) => {
     console.log("msgFrom", obj.msgFrom); console.log("msgBody", obj.msgBody); });
     
     */
-    /*
+  res.json({"items":items, "thumb":thumb, "videoTitle": videoTitle});
+next();
+    
     var transporter = nodemailer.createTransport({
     service: "gmail",
      //host: "smtp-relay.brevo.com",
@@ -150,19 +152,17 @@ app.get('/download', async(req, res) => {
 };
 
 transporter.sendMail(mailOptions, function (err, info) {
-  if (info){
-    */
-    res.json({"items":items, "thumb":thumb, "videoTitle": videoTitle});
-
-    //console.log(info)
-    /*
+  if (err)
+    
+    
+    //console.log(err)
+    
   else
     console.log(info);
     
-    res.json({"items":items, "thumb":thumb, "videoTitle": videoTitle});
-
+    
     //res.render('f_success');
-});*/
+});
     
 
   
