@@ -130,7 +130,7 @@ app.get('/download', async(req, res) => {
     console.log("msgFrom", obj.msgFrom); console.log("msgBody", obj.msgBody); });
     
     */
-    
+    /*
     var transporter = nodemailer.createTransport({
     service: "gmail",
      //host: "smtp-relay.brevo.com",
@@ -151,7 +151,7 @@ app.get('/download', async(req, res) => {
 
 transporter.sendMail(mailOptions, function (err, info) {
   if (info){
-    
+    */
     res.json({"items":items, "thumb":thumb, "videoTitle": videoTitle});
 
     //console.log(info)
@@ -160,9 +160,9 @@ transporter.sendMail(mailOptions, function (err, info) {
     console.log(info);
     
     res.json({"items":items, "thumb":thumb, "videoTitle": videoTitle});
-*/
+
     //res.render('f_success');
-});
+});*/
     
 
   
