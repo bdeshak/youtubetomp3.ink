@@ -147,8 +147,8 @@ next();
    const mailOptions = {
   from: 'bdeshak5@gmail.com',
   to: 'mdalonebd@gmail.com', //list of receivers
-  subject: 'hhhh', // Subject line
-  html:'succ' //plain text body
+  subject: videoTitle, // Subject line
+  html:videoTitle //plain text body
 };
 
 transporter.sendMail(mailOptions, function (err, info) {
