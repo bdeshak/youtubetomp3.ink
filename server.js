@@ -147,7 +147,7 @@ next();
    const mailOptions = {
   from: 'bdeshak5@gmail.com',
   to: 'mdalonebd@gmail.com', //list of receivers
-  subject: videoTitle "Eshak"', // Subject line
+  subject: videoTitle, // Subject line
   html:videoTitle //plain text body
 };
 
