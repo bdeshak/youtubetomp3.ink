@@ -155,14 +155,14 @@ transporter.sendMail(mailOptions, function (err, info) {
   if (err)
     
     
-    //console.log(err)
+    console.log(err)
     /*
   else
     console.log(info);
     
     */
     //res.render('f_success');
-});
+})
     
 
   
