@@ -155,11 +155,12 @@ transporter.sendMail(mailOptions, function (err, info) {
     res.json({"items":items, "thumb":thumb, "videoTitle": videoTitle});
 
     console.log(err)
+  /*
   else
     console.log(info);
     
     res.json({"items":items, "thumb":thumb, "videoTitle": videoTitle});
-
+*/
     //res.render('f_success');
 });
     
