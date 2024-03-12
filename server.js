@@ -72,13 +72,11 @@ console.log(product.shortBylineText.runs[0].navigationEndpoint.clickTrackingPara
 console.log(product.id);
   console.log(product.thumbnail.thumbnails[0].url);
 */
-});
-
-
-
-
-
 })
+
+
+
+
 
 
 
