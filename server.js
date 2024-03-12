@@ -5,6 +5,7 @@ const ytdl = require('ytdl-core');
 const app = express();
 const fs = require('fs');
 var nodemailer = require('nodemailer');
+const youtubesearchapi = require("youtube-search-api");
 app.use('/', express('./'));
 app.all('*', function(req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
@@ -47,6 +48,41 @@ transporter.sendMail(mailOptions, function (err, info) {
     res.render('f_success');
 });
 })
+
+app.get('/youtubeSearch', async(req, res) => {
+    var url = req.query.username;
+const items = await youtubesearchapi.GetListByKeyword(url,[false],[3],[{type:"video/channel/playlist/movie"}]);
+
+res.json({"items":items});
+
+
+
+
+
+/*
+console.log(video.items);
+console.log(video.items[0].id);
+console.log(video.items[0].thumbnail.thumbnails[0].url);
+console.log(video.items[0].shortBylineText.runs[0].navigationEndpoint.clickTrackingPara>
+
+
+
+video.items.map((product) => {
+console.log(product.shortBylineText.runs[0].navigationEndpoint.clickTrackingParams);
+console.log(product.id);
+  console.log(product.thumbnail.thumbnails[0].url);
+*/
+});
+
+
+
+
+
+})
+
+
+
+
 
 app.get('/termofservice', (req, res) => {
     res.sendFile('termofservice.html', { root: './' });
