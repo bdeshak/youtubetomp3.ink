@@ -51,7 +51,7 @@ transporter.sendMail(mailOptions, function (err, info) {
 
 app.get('/youtubeSearch', async(req, res) => {
     var url = req.query.username;
-const items = await youtubesearchapi.GetListByKeyword(url,[false],[3],[{type:"video/channel/playlist/movie"}]);
+const items = await youtubesearchapi.GetListByKeyword(url,[false],[20],[{type:"video/channel/playlist/movie"}]);
 
 items.items.forEach((obj, i) => {      
            
