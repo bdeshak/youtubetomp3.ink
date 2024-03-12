@@ -54,13 +54,13 @@ app.get('/youtubeSearch', async(req, res) => {
 const items = await youtubesearchapi.GetListByKeyword(url,[false],[20],[{type:"video"}]);
 
   //const items = await youtubesearchapi.GetListByKeyword(url,[false],[20],[{type:"video/channel/playlist/movie"}]);
-
+/*
 items.items.forEach((obj, i) => {      
            
           console.log(obj.id); 
            });
 
-  
+  */
 res.json({"items":items});
 
 
