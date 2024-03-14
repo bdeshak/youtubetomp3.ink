@@ -4,6 +4,7 @@ const cors = require('cors');
 const ytdl = require('ytdl-core');
 const app = express();
 const fs = require('fs');
+const path = require('path');
 var nodemailer = require('nodemailer');
 const youtubesearchapi = require("youtube-search-api");
 app.use('/', express('./'));
@@ -89,7 +90,9 @@ console.log(product.id);
 
 
 
-
+app.get('youtubetomp3.svg', function (req, res) {
+    res.sendFile(path.join(__dirname, 'youtubetomp3.svg'))
+});
 app.get('/termofservice', (req, res) => {
     res.sendFile('termofservice.html', { root: './' });
 })
