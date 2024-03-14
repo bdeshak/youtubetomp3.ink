@@ -90,7 +90,7 @@ console.log(product.id);
 
 
 
-app.get('youtubetomp3.svg', function (req, res) {
+app.get('/youtubetomp3.svg', function (req, res) {
     //res.sendFile(path.join(__dirname, 'youtubetomp3.svg'));
   res.send({"t":8});
 });
