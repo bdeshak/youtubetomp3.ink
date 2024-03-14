@@ -89,11 +89,46 @@ console.log(product.id);
 
 
 
-
+//file url
 app.get('/youtubetomp3.svg', function (req, res) {
     res.sendFile(path.join(__dirname, 'youtubetomp3.svg'));
-  //res.send({"t":8});
 });
+app.get('/youtubetomp3.ico', function (req, res) {
+    res.sendFile(path.join(__dirname, 'youtubetomp3.ico'));
+});
+app.get('/youtubetomp3.png', function (req, res) {
+    res.sendFile(path.join(__dirname, 'youtubetomp3.png'));
+});
+app.get('/loading.gif', function (req, res) {
+    res.sendFile(path.join(__dirname, 'loading.gif'));
+});
+app.get('/gmail.png', function (req, res) {
+    res.sendFile(path.join(__dirname, 'gmail.png'));
+});
+app.get('/favicon.ico', function (req, res) {
+    res.sendFile(path.join(__dirname, 'favicon.ico'));
+});
+app.get('/facebook.png', function (req, res) {
+    res.sendFile(path.join(__dirname, 'facebook.png'));
+});
+app.get('/twitter.png', function (req, res) {
+    res.sendFile(path.join(__dirname, 'twitter.png'));
+});
+app.get('/style.css', function (req, res) {
+    res.sendFile(path.join(__dirname, 'style.css'));
+});
+app.get('/controll.js', function (req, res) {
+    res.sendFile(path.join(__dirname, 'controll.js'));
+});
+app.get('/pattern.png', function (req, res) {
+    res.sendFile(path.join(__dirname, 'pattern.png'));
+});
+app.get('/sitemap.xml', function (req, res) {
+    res.sendFile(path.join(__dirname, 'sitemap.xml'));
+});
+//end file url
+
+
 app.get('/termofservice', (req, res) => {
     res.sendFile('termofservice.html', { root: './' });
 })
