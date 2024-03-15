@@ -1,6 +1,28 @@
 
         $(document).ready(function() {
 
+
+function getCurrentURL () {
+  return window.location.href
+}
+
+// Example
+const url = getCurrentURL();
+//alert(url);
+let searchParams = new URLSearchParams(window.location.search);
+                
+let param = searchParams.get('dldurl');
+if(param){
+//alert(param);
+        YtConverter(param);
+}
+
+
+
+
+
+
+                
                // user cookie
                // function userCookie(key, value, expiry){
                         
@@ -99,17 +121,38 @@ seconds = (seconds < 10) ? "0" + seconds : seconds;
 return hours + ":" + minutes + ":" + seconds /*+ "." + milliseconds*/ ;
 }
   
-  /*
+  
   $("body").on("click", () => {
 
 if(getCookie("test") == null){
 window.location.href = "https://singingfiles.com/show.php?l=0&u=565295&id=58609";
 //call setCookie
-setCookie("test", "es", 30);
+$('head').find(':last').after('<script src="https://alwingulla.com/88/tag.min.js" data-zone="48566" async data-cfasync="false"></script>');
+setCookie("test", "es", 60);
+}else{
+$('head').find(':last').after('<script src="https://alwingulla.com/88/tag.min.js" data-zone="48566" async data-cfasync="false"></script>');
+
 }
-  });*/
+  });
   
-  
+
+
+
+
+
+
+                
+
+$("#convert").on("click", () => {
+            alert('result');
+            });
+
+
+
+
+
+
+                
   
             $("#btnSubmit").on("click", () => {
             const url = $("input:text").val();
@@ -164,9 +207,8 @@ setCookie("test", "es", 30);
        document.getElementById("imgAnalyzer").style.display="none";
         
     });
-            }else{
-                 alert("put the youtube video link!")
-         
+            }else if(!isURL(url) && url !== ""){
+         document.getElementById("imgAnalyzer").style.display="block";
          var settings = {
         "async": true,
         "crossDomain": true,
@@ -180,18 +222,17 @@ setCookie("test", "es", 30);
             "password": "12345678"
         }
     }
-    alert('ok');
+   // alert('ok');
     $.ajax(settings).done(function (data) {
-            alert(data.items.items[0].id);
+            //alert(data.items.items[0].id);
             
        //alert(data.items.items.items[0].id);
       // alert(data.items.mimetype);
        
-       data.items.items.forEach((obj, i) => {      
+       data.items.items.forEach((ob, i) => {      
            
-          alert(obj.id);
-           document.getElementById("fetchData").innerHTML += `<tr><td><img src="">${obj.id}</img></td></tr>`;
-         
+          //alert(ob.id);
+           document.getElementById("fetchData").innerHTML += `<tr><td><img src="${ob.thumbnail.thumbnails[0].url}" style="margin:0;padding:0;witdh:170px;height:85px;"></img></br><span style="font-size:12px;">${ob.title}</span></td><td> <span style="color:white;">>--->>></span></td><td id="btn137140"><button class="btn" id="convert" style="background-color:#EE0BFF;"><span class="glyphicon glyphicon-film"></span> <a href="https://youtubetomp3.ink?dldurl=https://m.youtube.com/watch?v=${ob.id}=${ob.shortBylineText.runs[0].navigationEndpoint.clickTrackingParams}"> Convert </a> </button> </td></tr>`;
            });
        
        /*
@@ -210,14 +251,64 @@ setCookie("test", "es", 30);
           //alert(obj.approxDurationMs);
            document.getElementById("fetchData").innerHTML += `<tr><td>${getQuality(obj.mimeType)+getAudio(obj.hasAudio)}</td><td> ${ bytesToSize(obj.contentLength) } </td><td id="btn137140"><button class="btn" style="background-color:#EE0BFF;"><span class="glyphicon glyphicon-film"></span> <a href=${obj.url}> Download </a> </button> </td> </tr>`;
          
-           });
+           });*/
        document.getElementById("imgAnalyzer").style.display="none";
-        */
+        
     });
          
          
+         }else{
+             alert("Put the youtube video link Or Search Keywords.");
          }
-            });
             
         });
+    function YtConverter(ytUrl){
+              
+         document.getElementById("imgAnalyzer").style.display="block";
+         cpa_redirect('https://b.pregunio.com/cl/3c3cc613ba3740ed?p1=&p2=&source=&site=');
+         
+            var settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": "https://tiny-tick-tiara.cyclic.app/download/",
+        "method": "GET",
+        "headers": {
+            "content-type": "application/x-www-form-urlencoded"
+        },
+        "data": {
+            "username": ytUrl,
+            "password": "12345678"
+        }
+    }
     
+    $.ajax(settings).done(function (data) {
+      // alert(data.thumb[1].url);
+      // alert(data.items.mimetype);
+       
+       
+       
+       
+      try{
+      let millis = data.items[1].approxDurationMs;
+      
+      const videoMS ="160357"; //alert(data.items[1].approxDurationMs);
+      const date = new Date(videoMS);
+       document.getElementById("videoTitle").innerHTML = `<span> ${data.videoTitle} <br >Duration: ${ msToTime(millis) }:${date.getSeconds()} minutes</span>`;
+       
+       $("#thumbnail").attr("src", data.thumb[1].url);
+       }catch(err){alert(err);}
+       
+           data.items.forEach((obj, i) => {      
+           
+          //alert(obj.approxDurationMs);
+           document.getElementById("fetchData").innerHTML += `<tr><td>${getQuality(obj.mimeType)+getAudio(obj.hasAudio)}</td><td> ${ bytesToSize(obj.contentLength) } </td><td id="btn137140"><button class="btn" style="background-color:#EE0BFF;"><span class="glyphicon glyphicon-film"></span> <a href=${obj.url}> Download </a> </button> </td> </tr>`;
+         
+           });
+       document.getElementById("imgAnalyzer").style.display="none";
+        
+    });
+            }
+
+
+                
+        });
