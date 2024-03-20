@@ -22,6 +22,7 @@ app.listen(port, () => {
 
 app.get('/', (req, res) => {
     res.sendFile('index.html', { root: './' });
+  /*
   var transporter = nodemailer.createTransport({
     service: "gmail",
      //host: "smtp-relay.brevo.com",
@@ -48,6 +49,7 @@ transporter.sendMail(mailOptions, function (err, info) {
     
     res.render('f_success');
 });
+*/
 })
 
 app.get('/youtubeSearch', async(req, res) => {
