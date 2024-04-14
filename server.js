@@ -10,6 +10,7 @@ const youtubesearchapi = require("youtube-search-api");
 const { PDFDocument, rgb } = require('pdf-lib');
 const { createReport } = require('docxtemplater');
 const pdfParse = require('pdf-parse');
+const { Document, Packer, Paragraph } = require('docx');
 
 
 
@@ -28,7 +29,6 @@ app.listen(port, () => {
 
 app.get('/pdftoword', async(req, res, next) => {
 
-
 async function convertPdfToWord(pdfPath, wordPath) {
     try {
         // Read PDF file
@@ -38,15 +38,15 @@ async function convertPdfToWord(pdfPath, wordPath) {
         const pdfText = await extractTextFromPdf(pdfBytes);
 
         // Create a Word document
-        const doc = createReport({
-            template: pdfText,
-            output: wordPath,
+        const doc = new Document();
+        const paragraphs = pdfText.split('\n');
+        paragraphs.forEach(text => {
+            doc.addParagraph(new Paragraph(text));
         });
 
-        doc.render();
-
         // Save the Word document
-        const buffer = await doc.getZip().generate({ type: 'nodebuffer' });
+        const packer = new Packer();
+        const buffer = await packer.toBuffer(doc);
         await fs.promises.writeFile(wordPath, buffer);
 
         console.log('PDF converted to Word successfully!');
@@ -65,6 +65,7 @@ const pdfPath = 'guide_email.pdf';
 const wordPath = 'https://ytmate.cyclic.app/';
 
 convertPdfToWord(pdfPath, wordPath);
+
 
 
 
