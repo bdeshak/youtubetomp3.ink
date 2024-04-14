@@ -19,6 +19,13 @@ app.listen(port, () => {
     console.log("Server listening on port=>>" + port);
 });
 
+app.get('/pdftoword', (req, res, next) => {
+    res.send({ 'root': './' });
+       
+})
+
+
+
 
 app.get('/', (req, res) => {
     res.sendFile('index.html', { root: './' });
