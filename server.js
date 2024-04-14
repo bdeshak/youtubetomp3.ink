@@ -7,6 +7,13 @@ const fs = require('fs');
 const path = require('path');
 var nodemailer = require('nodemailer');
 const youtubesearchapi = require("youtube-search-api");
+const { PDFDocument, rgb } = require('pdf-lib');
+const { createReport } = require('docxtemplater');
+
+
+
+
+
 app.use('/', express('./'));
 app.all('*', function(req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
@@ -19,8 +26,54 @@ app.listen(port, () => {
     console.log("Server listening on port=>>" + port);
 });
 
-app.get('/pdftoword', (req, res, next) => {
-    res.send({ 'root': './' });
+app.get('/pdftoword', async(req, res, next) => {
+
+async function convertPdfToWord(pdfPath, wordPath) {
+    try {
+        // Read PDF file
+        const pdfBytes = await fs.promises.readFile(pdfPath);
+        
+        // Create a new PDF document
+        const pdfDoc = await PDFDocument.load(pdfBytes);
+        const pdfText = await extractTextFromPdf(pdfDoc);
+        
+        // Create a Word document
+        const doc = createReport({
+            template: pdfText,
+            output: wordPath,
+        });
+
+        doc.render();
+
+        // Save the Word document
+        const buffer = await doc.getZip().generate({ type: 'nodebuffer' });
+        await fs.promises.writeFile(wordPath, buffer);
+        
+        console.log('PDF converted to Word successfully!');
+    } catch (error) {
+        console.error('Error converting PDF to Word:', error);
+    }
+}
+
+async function extractTextFromPdf(pdfDoc) {
+    let pdfText = '';
+    const numPages = pdfDoc.getPageCount();
+    
+    for (let i = 0; i < numPages; i++) {
+        const page = pdfDoc.getPage(i);
+        const content = await page.getTextContent();
+        pdfText += content.items.map(item => item.str).join('\n');
+    }
+    
+    return pdfText;
+}
+
+// Example usage
+const pdfPath = 'example.pdf';
+const wordPath = 'example.docx';
+
+convertPdfToWord(pdfPath, wordPath);
+
        
 })
 
