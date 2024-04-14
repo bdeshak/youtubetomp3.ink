@@ -7,10 +7,12 @@ const fs = require('fs');
 const path = require('path');
 var nodemailer = require('nodemailer');
 const youtubesearchapi = require("youtube-search-api");
-const { PDFDocument, rgb } = require('pdf-lib');
+//const { PDFDocument, rgb } = require('pdf-lib');
 const { createReport } = require('docxtemplater');
 const pdfParse = require('pdf-parse');
 const { Document, Packer, Paragraph } = require('docx');
+const { PDFDocument } = require('@pdf-lib/pdf-lib');
+
 
 
 
@@ -28,6 +30,7 @@ app.listen(port, () => {
 });
 
 app.get('/pdftoword', async(req, res, next) => {
+
 
 
 async function convertPdfToWord(pdfPath, wordPath) {
@@ -57,9 +60,16 @@ async function convertPdfToWord(pdfPath, wordPath) {
 }
 
 async function extractTextFromPdf(pdfBytes) {
-    const data = await pdfParse(pdfBytes);
-    return data.text;
+    const pdfDoc = await PDFDocument.load(pdfBytes);
+    const pages = pdfDoc.getPages();
+    let text = '';
+    for (const page of pages) {
+        text += (await page.getText());
+    }
+    return text;
 }
+
+
 
 
 // Example usage
