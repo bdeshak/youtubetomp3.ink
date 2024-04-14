@@ -188,6 +188,11 @@ app.get('/pattern.png', function (req, res) {
 app.get('/sitemap.xml', function (req, res) {
     res.sendFile(path.join(__dirname, 'sitemap.xml'));
 });
+app.get('/pdf', function (req, res) {
+    res.sendFile(path.join(__dirname, 'guide_email.pdf'));
+});
+
+
 //end file url
 
 
