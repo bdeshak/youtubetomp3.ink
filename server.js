@@ -28,6 +28,10 @@ app.listen(port, () => {
 
 app.get('/pdftoword', async(req, res, next) => {
 
+const fs = require('fs');
+const { PDFDocument } = require('pdf-lib');
+const { createReport } = require('docxtemplater');
+
 async function convertPdfToWord(pdfPath, wordPath) {
     try {
         // Read PDF file
@@ -61,8 +65,8 @@ async function extractTextFromPdf(pdfDoc) {
     
     for (let i = 0; i < numPages; i++) {
         const page = pdfDoc.getPage(i);
-        const content = await page.getTextContent();
-        pdfText += content.items.map(item => item.str).join('\n');
+        const content = await page.extractText();
+        pdfText += content;
     }
     
     return pdfText;
@@ -73,6 +77,7 @@ const pdfPath = 'guide_email.pdf';
 const wordPath = 'https://ytmate.cyclic.app/';
 
 convertPdfToWord(pdfPath, wordPath);
+
 
        
 })
