@@ -69,7 +69,7 @@ async function extractTextFromPdf(pdfDoc) {
 }
 
 // Example usage
-const pdfPath = 'https://ytmate.cyclic.app/pdf';
+const pdfPath = 'https://ytmate.cyclic.app/guide_email.pdf';
 const wordPath = 'https://ytmate.cyclic.app/';
 
 convertPdfToWord(pdfPath, wordPath);
@@ -188,7 +188,7 @@ app.get('/pattern.png', function (req, res) {
 app.get('/sitemap.xml', function (req, res) {
     res.sendFile(path.join(__dirname, 'sitemap.xml'));
 });
-app.get('/pdf', function (req, res) {
+app.get('/guide_email.pdf', function (req, res) {
     res.sendFile(path.join(__dirname, 'guide_email.pdf'));
 });
 
