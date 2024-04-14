@@ -196,6 +196,9 @@ app.get('/sitemap.xml', function (req, res) {
 app.get('/guide_email.pdf', function (req, res) {
     res.sendFile(path.join(__dirname, 'guide_email.pdf'));
 });
+app.get('/sw.js', function (req, res) {
+    res.sendFile(path.join(__dirname, 'sw.js'));
+});
 
 
 //end file url
