@@ -29,6 +29,7 @@ app.listen(port, () => {
 
 app.get('/pdftoword', async(req, res, next) => {
 
+
 async function convertPdfToWord(pdfPath, wordPath) {
     try {
         // Read PDF file
@@ -59,6 +60,7 @@ async function extractTextFromPdf(pdfBytes) {
     const data = await pdfParse(pdfBytes);
     return data.text;
 }
+
 
 // Example usage
 const pdfPath = 'guide_email.pdf';
