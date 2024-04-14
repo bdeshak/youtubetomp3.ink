@@ -17,6 +17,7 @@
     "youtube-search-api": "^1.2.1",
     "docxtemplater": "^3.46.2",
     "pdf-lib": "^1.17.1",
+    "pdf-parse": "^1.1.1",
     "path": "^0.12.7"
   }
 }
