@@ -7,11 +7,11 @@ const fs = require('fs');
 const path = require('path');
 var nodemailer = require('nodemailer');
 const youtubesearchapi = require("youtube-search-api");
-//const { PDFDocument, rgb } = require('pdf-lib');
+const { PDFDocument, rgb } = require('pdf-lib');
 const { createReport } = require('docxtemplater');
 const pdfParse = require('pdf-parse');
 const { Document, Packer, Paragraph } = require('docx');
-const { PDFDocument } = require('@pdf-lib/pdf-lib');
+//const { PDFDocument } = require('@pdf-lib/pdf-lib');
 
 
 
