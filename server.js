@@ -9,7 +9,7 @@ var nodemailer = require('nodemailer');
 const youtubesearchapi = require("youtube-search-api");
 const { PDFDocument, rgb } = require('pdf-lib');
 const { createReport } = require('docxtemplater');
-
+const pdfParse = require('pdf-parse');
 
 
 
@@ -28,19 +28,15 @@ app.listen(port, () => {
 
 app.get('/pdftoword', async(req, res, next) => {
 
-const fs = require('fs');
-const { PDFDocument } = require('pdf-lib');
-const { createReport } = require('docxtemplater');
 
 async function convertPdfToWord(pdfPath, wordPath) {
     try {
         // Read PDF file
         const pdfBytes = await fs.promises.readFile(pdfPath);
-        
-        // Create a new PDF document
-        const pdfDoc = await PDFDocument.load(pdfBytes);
-        const pdfText = await extractTextFromPdf(pdfDoc);
-        
+
+        // Extract text from PDF
+        const pdfText = await extractTextFromPdf(pdfBytes);
+
         // Create a Word document
         const doc = createReport({
             template: pdfText,
@@ -52,24 +48,16 @@ async function convertPdfToWord(pdfPath, wordPath) {
         // Save the Word document
         const buffer = await doc.getZip().generate({ type: 'nodebuffer' });
         await fs.promises.writeFile(wordPath, buffer);
-        
+
         console.log('PDF converted to Word successfully!');
     } catch (error) {
         console.error('Error converting PDF to Word:', error);
     }
 }
 
-async function extractTextFromPdf(pdfDoc) {
-    let pdfText = '';
-    const numPages = pdfDoc.getPageCount();
-    
-    for (let i = 0; i < numPages; i++) {
-        const page = pdfDoc.getPage(i);
-        const content = await page.extractText();
-        pdfText += content;
-    }
-    
-    return pdfText;
+async function extractTextFromPdf(pdfBytes) {
+    const data = await pdfParse(pdfBytes);
+    return data.text;
 }
 
 // Example usage
@@ -77,6 +65,7 @@ const pdfPath = 'guide_email.pdf';
 const wordPath = 'https://ytmate.cyclic.app/';
 
 convertPdfToWord(pdfPath, wordPath);
+
 
 
        
