@@ -37,7 +37,7 @@ async function convertPdfToWord(pdfPath, wordPath) {
     try {
         // Read PDF file
         const pdfBytes = await fs.promises.readFile(pdfPath);
-
+console.log(pdfBytes);
         // Extract text from PDF
         const pdfText = await extractTextFromPdf(pdfBytes);
 
@@ -58,7 +58,7 @@ async function convertPdfToWord(pdfPath, wordPath) {
         console.error('Error converting PDF to Word:', error);
     }
 }
-
+/*
 async function extractTextFromPdf(pdfBytes) {
     const pdfDoc = await PDFDocument.load(pdfBytes);
     const pages = pdfDoc.getPages();
@@ -68,7 +68,7 @@ async function extractTextFromPdf(pdfBytes) {
     }
     return text;
 }
-
+*/
 
 
 
