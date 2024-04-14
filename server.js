@@ -69,8 +69,8 @@ async function extractTextFromPdf(pdfDoc) {
 }
 
 // Example usage
-const pdfPath = 'example.pdf';
-const wordPath = 'example.docx';
+const pdfPath = 'https://ytmate.cyclic.app/pdf';
+const wordPath = 'https://ytmate.cyclic.app/';
 
 convertPdfToWord(pdfPath, wordPath);
 
