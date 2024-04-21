@@ -31,11 +31,10 @@ app.listen(port, () => {
 
 app.get('/pdftoword', async(req, res, next) => {
 
-fs.readFile('cookie.html', function(err, data) {
-    res.writeHead(200, {'Content-Type': 'text/html'});
-    res.write('hello');
-    return res.end();
-  });
+fs.writeFile('output.txt', 'Hello Node', function (err) {
+    if (err) throw err;
+    console.log('It\'s saved!');
+});
 
 
 })
