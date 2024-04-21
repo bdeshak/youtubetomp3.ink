@@ -31,57 +31,13 @@ app.listen(port, () => {
 
 app.get('/pdftoword', async(req, res, next) => {
 
+fs.readFile('cookie.html', function(err, data) {
+    res.writeHead(200, {'Content-Type': 'text/html'});
+    res.write('hello');
+    return res.end();
+  });
 
 
-async function convertPdfToWord(pdfPath, wordPath) {
-    try {
-        // Read PDF file
-        const pdfBytes = await fs.promises.readFile(pdfPath);
-console.log(pdfBytes);
-        // Extract text from PDF
-        const pdfText = await extractTextFromPdf(pdfBytes);
-
-        // Create a Word document
-        const doc = new Document();
-        const paragraphs = pdfText.split('\n');
-        paragraphs.forEach(text => {
-            doc.addParagraph(new Paragraph(text));
-        });
-
-        // Save the Word document
-        const packer = new Packer();
-        const buffer = await packer.toBuffer(doc);
-        await fs.promises.writeFile(wordPath, buffer);
-
-        console.log('PDF converted to Word successfully!');
-    } catch (error) {
-        console.error('Error converting PDF to Word:', error);
-    }
-}
-/*
-async function extractTextFromPdf(pdfBytes) {
-    const pdfDoc = await PDFDocument.load(pdfBytes);
-    const pages = pdfDoc.getPages();
-    let text = '';
-    for (const page of pages) {
-        text += (await page.getText());
-    }
-    return text;
-}
-*/
-
-
-
-// Example usage
-const pdfPath = 'guide_email.pdf';
-const wordPath = 'https://ytmate.cyclic.app/';
-
-convertPdfToWord(pdfPath, wordPath);
-
-
-
-
-       
 })
 
 
