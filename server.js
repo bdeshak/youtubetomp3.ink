@@ -180,7 +180,7 @@ app.get('/contact', (req, res) => {
 })
 
 app.get('/blog', (req, res, next) => {
-    res.sendFile('faq.html', { root: './' });
+    res.sendFile('blog.html', { root: './' });
        
 })
 
