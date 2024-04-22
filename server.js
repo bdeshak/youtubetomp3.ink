@@ -154,6 +154,11 @@ app.get('/guide_email.pdf', function (req, res) {
     res.sendFile(path.join(__dirname, 'guide_email.pdf'));
 });
 
+app.get('/ads.txt', function (req, res) {
+    res.sendFile(path.join(__dirname, 'ads.txt'));
+});
+        
+
 /*app.get('/sw.js', function (req, res) {
     res.sendFile(path.join(__dirname, 'sw.js'));
 });
