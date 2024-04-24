@@ -166,7 +166,7 @@ app.get('/ads.txt', function (req, res) {
 
 //end file url
 
-
+//routes
 app.get('/termofservice', (req, res) => {
     res.sendFile('termofservice.html', { root: './' });
 })
@@ -181,6 +181,11 @@ app.get('/contact', (req, res) => {
 
 app.get('/blog', (req, res, next) => {
     res.sendFile('blog.html', { root: './' });
+       
+})
+
+app.get('/ytconverter', (req, res, next) => {
+    res.sendFile('ytconverter.html', { root: './' });
        
 })
 
