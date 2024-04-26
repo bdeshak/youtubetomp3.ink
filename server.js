@@ -157,6 +157,10 @@ app.get('/guide_email.pdf', function (req, res) {
 app.get('/ads.txt', function (req, res) {
     res.sendFile(path.join(__dirname, 'ads.txt'));
 });
+
+  app.get('/watch', function (req, res) {
+    res.sendFile(path.join(__dirname, 'watch.jpg'));
+});                  
         
 
 /*app.get('/sw.js', function (req, res) {
