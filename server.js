@@ -11,6 +11,7 @@ const { PDFDocument, rgb } = require('pdf-lib');
 const { createReport } = require('docxtemplater');
 const pdfParse = require('pdf-parse');
 const { Document, Packer, Paragraph } = require('docx');
+const geoip = require('geoip-lite');
 //const { PDFDocument } = require('@pdf-lib/pdf-lib');
 
 
@@ -29,15 +30,19 @@ app.listen(port, () => {
     console.log("Server listening on port=>>" + port);
 });
 
-app.get('/pdftoword', async(req, res, next) => {
 
-fs.writeFile('output.txt', 'Hello Node', function (err) {
-    if (err) throw err;
-    console.log('It\'s saved!');
+app.get('/geo', (req, res) => {
+    const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+    const geo = geoip.lookup(ip);
+    
+    if (geo) {
+        console.log('User Location:', geo);
+        res.send(`Your location: ${geo.city}, ${geo.region}, ${geo.country}`);
+    } else {
+        console.log('Unable to determine user location');
+        res.send('Unable to determine user location');
+    }
 });
-
-
-})
 
 
 
