@@ -45,6 +45,20 @@ app.get('/geo', (req, res) => {
 });
 
 
+app.get('/f', (req, res) => {
+    res.sendFile('index.html', { root: './' });
+  /*
+  var transporter = nodemailer.createTransport({
+    service: "gmail",
+     //host: "smtp-relay.brevo.com",
+     //port: 587,
+     //secure: true,
+  auth: {
+    user: "bdeshak5@gmail.com",
+    pass: "zkigvvfbezcohexj"
+  }
+});
+
 
 
 app.get('/', (req, res) => {
