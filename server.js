@@ -31,18 +31,7 @@ app.listen(port, () => {
 });
 
 
-app.get('/geo', (req, res) => {
-    const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
-    const geo = geoip.lookup(ip);
-    
-    if (geo) {
-        console.log('User Location:', geo);
-        res.send(`Your location: ${geo.city}, ${geo.region}, ${geo.country}`);
-    } else {
-        console.log('Unable to determine user location');
-        res.send('Unable to determine user location');
-    }
-});
+
 
 
 app.get('/f', (req, res) => {
