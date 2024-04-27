@@ -11,9 +11,7 @@ const { PDFDocument, rgb } = require('pdf-lib');
 const { createReport } = require('docxtemplater');
 const pdfParse = require('pdf-parse');
 const { Document, Packer, Paragraph } = require('docx');
-import fet from 'node-fetch';
 
-const fetch = fet;
 
 
 
@@ -41,13 +39,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/hello', async (req, res) => {
-    const fetch = require('node-fetch')
-
-  var fetch_res = await fetch(`https://ipapi.co/${req.ip}/json/`);
-  var fetch_data = await fetch_res.json()
-
-  res.send(`You are from ${fetch_data.region}`)
-
+    
 
 
  
