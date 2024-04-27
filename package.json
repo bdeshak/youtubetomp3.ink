@@ -20,6 +20,7 @@
     "pdf-parse": "^1.1.1",
     "docx": "^8.5.0",
     "path": "^0.12.7",
-    "node-fetch": "^3.3.2"
+    "node-fetch": "^3.3.2",
+    "geoip-lite": "^1.4.10"
   }
 }
