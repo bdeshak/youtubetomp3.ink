@@ -39,7 +39,21 @@ app.get('/', (req, res) => {
 });
 
 app.get('/hello', (req, res) => {
-    res.sendFile('index.html', { root: './' });
+    try {
+        // Get user's IP address from request headers
+        const ipAddress = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
+
+        // Use ipinfo.io to get location information
+        const location = await getUserLocation(ipAddress);
+
+        console.log('User Location:', location);
+        res.writeHead(200, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify(location));
+    } catch (error) {
+        console.error('Error:', error);
+        res.writeHead(500, { 'Content-Type': 'text/plain' });
+        res.end('Internal Server Error');
+    }
  
 });
 
