@@ -35,16 +35,7 @@ app.listen(port, () => {
 
 app.get('/', (req, res) => {
     res.sendFile('index.html', { root: './' });
-  /*
-  var transporter = nodemailer.createTransport({
-    service: "gmail",
-     //host: "smtp-relay.brevo.com",
-     //port: 587,
-     //secure: true,
-  auth: {
-    user: "bdeshak5@gmail.com",
-    pass: "zkigvvfbezcohexj"
-  }
+  
 });
 
 app.get('/hello', (req, res) => {
