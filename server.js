@@ -38,7 +38,7 @@ app.get('/', (req, res) => {
   
 });
 
-app.get('/hello', (req, res) => {
+app.get('/hello', async (req, res) => {
     try {
         // Get user's IP address from request headers
         const ipAddress = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
