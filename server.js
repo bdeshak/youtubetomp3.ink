@@ -38,9 +38,9 @@ app.get('/', (req, res) => {
   
 });
 
-app.get('/hello', async (req, res) => {
+app.get('/hello', (req, res) => {
     
-
+res.send(8);
 
  
 });
