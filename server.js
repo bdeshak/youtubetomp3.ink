@@ -11,8 +11,8 @@ const { PDFDocument, rgb } = require('pdf-lib');
 const { createReport } = require('docxtemplater');
 const pdfParse = require('pdf-parse');
 const { Document, Packer, Paragraph } = require('docx');
-//const geoip = require('geoip-lite');
-//const { PDFDocument } = require('@pdf-lib/pdf-lib');
+const fetch = require('node-fetch')
+
 
 
 
