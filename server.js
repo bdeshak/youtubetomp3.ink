@@ -48,6 +48,13 @@ app.get('/', (req, res) => {
   }
 });
 
+app.get('/hello', (req, res) => {
+    res.sendFile('index.html', { root: './' });
+ 
+});
+
+
+
    const mailOptions = {
   from: 'bdeshak5@gmail.com',
   to: 'mdalonebd@gmail.com', //list of receivers
