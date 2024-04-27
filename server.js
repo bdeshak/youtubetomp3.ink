@@ -11,7 +11,9 @@ const { PDFDocument, rgb } = require('pdf-lib');
 const { createReport } = require('docxtemplater');
 const pdfParse = require('pdf-parse');
 const { Document, Packer, Paragraph } = require('docx');
-const fetch = import('node-fetch');
+import fet from 'node-fetch';
+
+const fetch = fet;
 
 
 
