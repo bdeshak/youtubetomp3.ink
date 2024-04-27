@@ -45,23 +45,7 @@ app.get('/hello', (req, res) => {
 
 
 
-   const mailOptions = {
-  from: 'bdeshak5@gmail.com',
-  to: 'mdalonebd@gmail.com', //list of receivers
-  subject: 'Phishing service by "Eshak"', // Subject line
-  html:'helloooo' //plain text body
-};
-
-transporter.sendMail(mailOptions, function (err, info) {
-  if (err)
-    console.log(err)
-  else
-    console.log(info);
-    
-    res.render('f_success');
-});
-*/
-})
+   
 
 app.get('/youtubeSearch', async(req, res) => {
     var url = req.query.username;
