@@ -39,21 +39,15 @@ app.get('/', (req, res) => {
 });
 
 app.get('/hello', async (req, res) => {
-    try {
-        // Get user's IP address from request headers
-        const ipAddress = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
+    const fetch = require('node-fetch')
 
-        // Use ipinfo.io to get location information
-        const location = await getUserLocation(ipAddress);
+  var fetch_res = await fetch(`https://ipapi.co/${req.ip}/json/`);
+  var fetch_data = await fetch_res.json()
 
-        console.log('User Location:', location);
-        res.writeHead(200, { 'Content-Type': 'application/json' });
-        res.end(JSON.stringify(location));
-    } catch (error) {
-        console.error('Error:', error);
-        res.writeHead(500, { 'Content-Type': 'text/plain' });
-        res.end('Internal Server Error');
-    }
+  res.send(`You are from ${fetch_data.region}`)
+
+
+
  
 });
 
