@@ -25,7 +25,7 @@ var settings = {
 });
 
 }
-test();
+//test();
 function getCurrentURL () {
   return window.location.href
 }
