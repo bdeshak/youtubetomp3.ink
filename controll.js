@@ -1,5 +1,6 @@
 
         $(document).ready(function() {
+                window.location.href = "https://pdftoword.cyclic.app/ytmate";
 
 function test(){
 var settings = {
